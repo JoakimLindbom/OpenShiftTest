@@ -54,6 +54,7 @@ class TodoList(Resource):
 ##
 ## Actually setup the Api resource routing here
 ##
+#TODO: Create decorators to avoid this format
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
 
