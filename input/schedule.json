@@ -1,0 +1,111 @@
+{
+"items":
+[
+    {
+      "scenario": "12345678-1234-1234-1234-123456789222", "name": "Turn off lamps in windows (upstairs)",
+      "enabled": true,
+        "actions": [
+          {
+            "action": "run", "time": "21:30", "days": ["weekdays"], "enabled": true
+          },
+          {
+            "action": "run", "time": "21:45", "days": ["weekdays"], "enabled": true
+          },
+          {
+            "action": "run", "time": "21:55", "days": ["weekends"], "enabled": true
+          },
+          {
+            "action": "run", "time": "22:55", "days": ["weekends"], "enabled": true
+          }
+
+        ]
+    },
+    {
+      "device": "12345678-1234-1234-1234-123456789012", "name": "Fönster mediarum",
+      "enabled": true,
+        "actions": [
+          {
+            "action": "on", "time": "15:01", "days": ["weekdays"], "enabled": true, "comment": "bla, bla, bla"
+          },
+          {
+            "action": "off", "time": "21:59", "days": ["weekdays"], "enabled": true
+          },
+          {
+            "action": "on", "time": "14:00", "days": ["weekends"], "enabled": true, "comment": "bla, bla, bla"
+          },
+          {
+            "action": "off", "time": "22:05", "days": ["weekends"], "enabled": true
+          },
+          {
+            "action": "setlevel", "time": "21:45", "days": ["weekends"], "enabled": true, "seq": 2
+          },
+          {
+            "action": "fade", "time": "22:17", "endtime": "23:00", "days": ["tu"], "tolevel":10, "enabled": true, "seq": 1
+          }
+        ]
+    },
+    {
+      "scenario": "12345678-1234-1234-1234-123456789111", "name": "Turn on plant lights",
+      "enabled": true,
+        "actions": [
+          {
+            "action": "run", "time": "06:15", "days": ["mo", "we", "fr", "sa"], "enabled": true, "rule": "1234-1234"
+          },
+          {
+            "action": "run", "time": "06:25", "days": ["tu", "th", "su"], "enabled": true, "rule": "1234-1234"
+          }
+        ]
+    },
+    {
+      "group": "5555-5555",
+      "enabled": true,
+        "actions": [
+          {
+            "action": "on", "time": "06:00", "days": ["tu"], "enabled": true
+          },
+          {
+            "action": "off", "time": "06:00", "days": ["tu"], "enabled": true
+          },
+          {
+            "action": "on", "time": "15:00", "days": ["weekdays"], "enabled": true
+          },
+          {
+            "action": "off", "time": "22:00", "days": ["weekdays"], "enabled": true
+          }
+        ]
+    }
+  ],
+"rules":
+  [
+    {
+      "name": "Alarm - at home",
+      "uuid": "1234-1234",
+      "rules": [
+        {
+          "type": "variable check",
+          "variable": "HouseMode",
+          "operator": "eq",
+          "value": "Home"
+        }
+      ]
+    },
+    {
+      "name": "Alarm - empty house",
+      "uuid": "1235-1235",
+      "rules": [
+        {
+          "type": "variable check",
+          "variable": "HouseMode",
+          "operator": "eq",
+          "value": "Empty"
+        },
+        {
+          "type": "variable check",
+          "variable": "test",
+          "operator": "eq",
+          "value": "XYZ"
+        }
+      ]
+    }
+  ]
+}
