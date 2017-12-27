@@ -18,6 +18,11 @@ def abort_if_todo_doesnt_exist(todo_id):
 parser = reqparse.RequestParser()
 parser.add_argument('task')
 
+# Root
+# shows a todo list
+class Root(Resource):
+    def get(self):
+        return TODOS
 
 # Todo
 # shows a single todo item and lets you delete a todo item
@@ -55,6 +60,7 @@ class TodoList(Resource):
 ## Actually setup the Api resource routing here
 ##
 #TODO: Create decorators to avoid this format
+api.add_resource(Root, '/')
 api.add_resource(TodoList, '/todos')
 api.add_resource(Todo, '/todos/<todo_id>')
 
